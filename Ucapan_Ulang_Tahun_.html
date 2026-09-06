@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Selamat Ulang Tahun 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+         background: linear-gradient(135deg, #5a1515, #8f2d2d, #6b1b1b);
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #FFFFFF;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* 🌟 BINTANG — BANYAK & BERKEDIP! */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .star {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+            animation: kedip 2.5s infinite ease-in-out;
+            box-shadow: 0 0 8px #FFFFFF, 0 0 14px #FFD700;
+        }
+
+        .star::before,
+        .star::after {
+            content: '';
+            position: absolute;
+            background: #FFFFFF;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .star::before {
+            width: 2px;
+            height: 16px;
+            box-shadow: 0 0 6px #FFFFFF;
+        }
+
+        .star::after {
+            width: 16px;
+            height: 2px;
+            box-shadow: 0 0 6px #FFFFFF;
+        }
+        @keyframes kedip {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* 🎈 BALON — BANYAK TERBANG! */
+        .balloons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -120px;
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            animation: naikBalon 12s linear infinite;
+            box-shadow: inset -8px -8px 15px rgba(0,0,0,0.15);
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            width: 2px;
+            height: 50px;
+            background: rgba(255,255,255,0.5);
+            transform: translateX(-50%);
+        }
+        @keyframes naikBalon {
+            0% { transform: translateY(0) rotate(0deg); }
+            20% { transform: translateY(-250px) rotate(5deg); }
+            40% { transform: translateY(-500px) rotate(-5deg); }
+            60% { transform: translateY(-750px) rotate(5deg); }
+            80% { transform: translateY(-1000px) rotate(-5deg); }
+            100% { transform: translateY(-1300px) rotate(0deg); }
+        }
+
+
+        /* 🎆 KEMBANG API — BANYAK & BERKILAU */
+        .firework {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100;
+            box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+            animation: ledak 1.5s ease-out forwards;
+        }
+
+        @keyframes ledak {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .firework-core {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 101;
+            animation: intiLedak 0.35s ease-out forwards;
+        }
+
+        @keyframes intiLedak {
+            0% { transform: scale(0.2); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* 📦 KONTEN — DI ATAS SEMUA */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* 🎂 Kue */
+        .cake {
+            font-size: 120px;
+            margin: 20px 0;
+            animation: ayun 2s infinite ease-in-out;
+        }
+        @keyframes ayun {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* 📝 TULISAN — JELAS & TERANG! */
+        h1 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            text-shadow: 0 0 20px #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .nama {
+            font-size: 2rem;
+            color: #6b7aff;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px #6b7aff;
+        }
+
+        .ucapan {
+            font-size: 1.2rem;
+            color: #FFFFFF;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        /* 📸 SATU FOTO — BESAR & KEREN! */
+        .foto-section {
+            margin: 30px 0;
+        }
+        .foto-section h3 {
+            color: #FFD700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .foto-box {
+            width: 280px;
+            height: 350px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            border: 4px solid #FF6B6B;
+            box-shadow: 0 0 30px rgba(255,107,107,0.4);
+            overflow: hidden;
+        }
+        .foto-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 💌 Pesan & Tombol */
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 0 20px rgba(255,107,107,0.5);
+        }
+        .btn:hover { transform: scale(1.08); }
+
+        #pesanBox {
+            background: #FFFFFF;
+            color: #333333;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 25px;
+            display: none;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+        #pesanBox h2 {
+            color: #FF6B6B;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #pesanBox p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* 📱 HP */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .nama { font-size: 1.5rem; }
+            .cake { font-size: 90px; }
+            .foto-box { width: 240px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🌟 BINTANG — OTOMATIS BANYAK! -->
+    <div class="stars" id="stars"></div>
+
+    <!-- 🎈 BALON — OTOMATIS BANYAK! -->
+    <div class="balloons" id="balloons"></div>
+
+    <!-- 📦 KONTEN UTAMA -->
+    <div class="container">
+        
+        <div class="cake">🎂</div>
+
+        <h1>🎉 SELAMAT ULANG TAHUN SAYANGGG  🎉</h1>
+
+        <div class="nama">💖 SINDI PUTRI RAMADHANI💖</div>
+
+        <div class="ucapan">
+            Selamat bertambah usia! 🎂🎈<br>
+            Semoga panjang umur, sehat selalu,<br>
+            bahagia, sukses, dan semua impianmu terwujud! ✨<br>
+            Tetaplah bersinar dan menjadi kebanggaan semua orang! 💖
+        </div>
+
+        <!-- 📸 SATU FOTO SAJA -->
+        <div class="foto-section">
+            <h3>📸 kamu.jpeg</h3>
+            <div class="foto-box">
+                <img src="kamu.jpeg" alt="Foto Spesial">
+                <!-- Ganti foto: hapus <span> di atas, lalu ganti nama file di bawah -->
+                <!-- <img src="foto-anda.jpg" alt="Foto Spesial"> -->
+            </div>
+        </div>
+
+        <!-- 💌 Pesan -->
+        <br>
+        <button class="btn" onclick="bukaPesan()">💌 Buka Pesan Khusus</button>
+        
+        <div id="pesanBox">
+            <h2>✨ Untuk Kamu ✨</h2>
+            <p>
+                Hai orang spesialku,<br><br>
+                Di hari bahagia ini, aku cuma mau bilang betapa beruntungnya aku mengenal kamu. Kamu adalah anugerah terindah yang Tuhan berikan. Terima kasih sudah menjadi dirimu yang luar biasa, yang selalu sabar, baik, dan penuh kasih sayang.<br><br>
+                Semoga di usia yang baru ini, kamu semakin bijaksana, semakin sukses, dan dikelilingi orang-orang yang tulus menyayangimu. Jangan pernah menyerah, ya! Kamu jauh lebih hebat dari yang kamu kira 💪✨<br><br>
+                Selamat ulang tahun! 🎂❤️<br>
+                — Dengan cinta yang tulus ❤️
+            </p>
+        </div>
+
+        <br><br>
+        <button class="btn" onclick="kembangApi()">🎆 Klik Aku!</button>
+    </div>
+
+    <script>
+        // 🌟 1. BINTANG — 250 BUAH! BERKEDIP INDAH!
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 400; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const ukuran = Math.random() * 3 + 1.5;
+            star.style.width = ukuran + 'px';
+            star.style.height = ukuran + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2.5 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // 🎈 2. BALON — BANYAK & TERUS MUNCUL!
+        const balloonsContainer = document.getElementById('balloons');
+        const warnaBalon = ['#FF6B6B','#FFD700','#4ECDC4','#A55EEA','#26DE81','#FF85A8','#54A0FF','#FF9F43'];
+        
+        function buatBalon() {
+            const balon = document.createElement('div');
+            balon.className = 'balloon';
+            balon.style.left = Math.random() * 90 + 5 + '%';
+            balon.style.backgroundColor = warnaBalon[Math.floor(Math.random() * warnaBalon.length)];
+            const ukuran = 50 + Math.random() * 40;
+            balon.style.width = ukuran + 'px';
+            balon.style.height = ukuran * 1.3 + 'px';
+            balon.style.animationDuration = (8 + Math.random() * 6) + 's';
+            balon.style.opacity = 0.85;
+            balloonsContainer.appendChild(balon);
+            setTimeout(() => balon.remove(), 14000);
+        }
+        // Buat banyak balon sejak awal agar halaman langsung ramai.
+        for (let i = 0; i < 35; i++) {
+            setTimeout(buatBalon, i * 120);
+        }
+
+        // Muncul balon baru terus-menerus.
+        setInterval(buatBalon, 180);
+
+        // 💌 3. Buka/Tutup Pesan
+        function bukaPesan() {
+            const box = document.getElementById('pesanBox');
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // 🎆 4. KEMBANG API — PERTUNJUKAN BESAR
+        const warnaKembangApi = [
+            '#FF3B30', '#FFD700', '#00BFFF', '#FF69B4',
+            '#7CFC00', '#FFFFFF', '#A55EEA', '#FF8C00'
+        ];
+
+        function ledakanKembangApi(x, y) {
+            const warna = warnaKembangApi[Math.floor(Math.random() * warnaKembangApi.length)];
+
+            // Titik inti ledakan
+            const inti = document.createElement('div');
+            inti.className = 'firework-core';
+            inti.style.left = x + '%';
+            inti.style.top = y + '%';
+            inti.style.backgroundColor = warna;
+            inti.style.color = warna;
+            document.body.appendChild(inti);
+            setTimeout(() => inti.remove(), 400);
+
+            // Banyak partikel menyebar membentuk lingkaran
+            const jumlahPartikel = 55;
+            for (let i = 0; i < jumlahPartikel; i++) {
+                const api = document.createElement('div');
+                api.className = 'firework';
+                api.style.left = x + '%';
+                api.style.top = y + '%';
+                api.style.backgroundColor = warna;
+                api.style.color = warna;
+
+                const sudut = (Math.PI * 2 * i / jumlahPartikel) + (Math.random() - 0.5) * 0.12;
+                const jarak = 80 + Math.random() * 180;
+                api.style.setProperty('--dx', Math.cos(sudut) * jarak + 'px');
+                api.style.setProperty('--dy', Math.sin(sudut) * jarak + 'px');
+                api.style.animationDuration = (1.0 + Math.random() * 0.9) + 's';
+
+                document.body.appendChild(api);
+                setTimeout(() => api.remove(), 2200);
+            }
+        }
+
+        function kembangApi() {
+            // Langsung buat banyak ledakan di berbagai posisi
+            for (let i = 0; i < 14; i++) {
+                setTimeout(() => {
+                    const x = 8 + Math.random() * 84;
+                    const y = 8 + Math.random() * 58;
+                    ledakanKembangApi(x, y);
+                }, i * 180);
+            }
+
+            // Gelombang tambahan supaya pertunjukan lebih ramai
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const x = 5 + Math.random() * 90;
+                    const y = 10 + Math.random() * 55;
+                    ledakanKembangApi(x, y);
+                }, 2800 + i * 220);
+            }
+        }
+
+        // 🎆 Kembang api kecil otomatis agar halaman selalu meriah
+        setTimeout(() => {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    ledakanKembangApi(10 + Math.random() * 80, 10 + Math.random() * 55);
+                }, i * 300);
+            }
+        }, 1000);
+
+    </script>
+
+</body>
+</html>
