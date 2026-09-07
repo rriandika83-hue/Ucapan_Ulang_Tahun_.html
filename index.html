@@ -306,10 +306,9 @@
             <h2>✨ Untuk Kamu ✨</h2>
             <p>
                 Hai orang spesialku,<br><br>
-                Di hari bahagia ini, aku cuma mau bilang betapa beruntungnya aku mengenal kamu. Kamu adalah anugerah terindah yang Tuhan berikan. Terima kasih sudah menjadi dirimu yang luar biasa, yang selalu sabar, baik, dan penuh kasih sayang.<br><br>
-                Semoga di usia yang baru ini, kamu semakin bijaksana, semakin sukses, dan dikelilingi orang-orang yang tulus menyayangimu. Jangan pernah menyerah, ya! Kamu jauh lebih hebat dari yang kamu kira 💪✨<br><br>
-                Selamat ulang tahun! 🎂❤️<br>
-                — Dengan cinta yang tulus ❤️
+                Sayang, selamat ulang tahun. ❤️ Hari ini bukan hanya tentang bertambahnya usiamu, tapi tentang betapa bersyukurnya aku karena sampai hari ini aku masih diberi kesempatan untuk mengenal, mencintai, dan menemanimu. Terima kasih sudah hadir di hidupku dan memberikan begitu banyak warna dalam hari-hariku. Mungkin selama bersamamu aku masih sering salah, masih banyak kurangnya, dan belum bisa menjadi seseorang yang sempurna untukmu. Tapi satu hal yang ingin kamu tahu, perasaanku kepadamu selalu tulus. Setiap waktu yang kita lewati, sekecil apa pun itu, akan selalu menjadi kenangan yang berharga bagiku. 🥺❤️<br><br>
+                Di hari ulang tahunmu ini, aku hanya ingin berdoa semoga hidupmu selalu dipenuhi kebahagiaan, kesehatan, dan orang-orang yang benar-benar menyayangimu. Kalau suatu hari nanti kamu merasa lelah, kecewa, atau dunia terasa terlalu berat, semoga kamu selalu ingat bahwa ada seseorang yang akan tetap memilihmu dan mendoakanmu dalam diam. Aku tidak tahu akan seperti apa perjalanan kita ke depannya, tapi selama Tuhan masih memberikan kesempatan, aku ingin terus berjalan bersamamu, melewati setiap suka dan duka, sampai kita melihat kembali semua perjuangan ini dengan senyuman. Selamat ulang tahun, sayangku. Terima kasih sudah menjadi bagian terindah dalam hidupku. Aku sayang kamu, lebih dari yang mampu aku ungkapkan dengan kata-kata. ❤️🥺 ❤️🥺<br><br>
+                i love you sayanggg 🎂❤️
             </p>
         </div>
 
@@ -320,7 +319,7 @@
     <script>
         // 🌟 1. BINTANG — 250 BUAH! BERKEDIP INDAH!
         const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 400; i++) {
+        for (let i = 0; i < 45; i++) {
             const star = document.createElement('div');
             star.className = 'star';
             const ukuran = Math.random() * 3 + 1.5;
@@ -383,7 +382,7 @@
             setTimeout(() => inti.remove(), 400);
 
             // Banyak partikel menyebar membentuk lingkaran
-            const jumlahPartikel = 55;
+            const jumlahPartikel = 32;
             for (let i = 0; i < jumlahPartikel; i++) {
                 const api = document.createElement('div');
                 api.className = 'firework';
@@ -404,31 +403,30 @@
         }
 
         function kembangApi() {
-            // Langsung buat banyak ledakan di berbagai posisi
-            for (let i = 0; i < 14; i++) {
-                setTimeout(() => {
-                    const x = 8 + Math.random() * 84;
-                    const y = 8 + Math.random() * 58;
-                    ledakanKembangApi(x, y);
-                }, i * 180);
-            }
-
-            // Gelombang tambahan supaya pertunjukan lebih ramai
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const x = 5 + Math.random() * 90;
-                    const y = 10 + Math.random() * 55;
-                    ledakanKembangApi(x, y);
-                }, 2800 + i * 220);
-            }
-        }
-
-        // 🎆 Kembang api kecil otomatis agar halaman selalu meriah
-        setTimeout(() => {
+            // Kembang api dibuat lebih sedikit agar tidak terlalu ramai
             for (let i = 0; i < 5; i++) {
                 setTimeout(() => {
-                    ledakanKembangApi(10 + Math.random() * 80, 10 + Math.random() * 55);
-                }, i * 300);
+                    const x = 15 + Math.random() * 70;
+                    const y = 12 + Math.random() * 45;
+                    ledakanKembangApi(x, y);
+                }, i * 350);
+            }
+
+            // Gelombang tambahan kecil
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const x = 10 + Math.random() * 80;
+                    const y = 10 + Math.random() * 50;
+                    ledakanKembangApi(x, y);
+                }, 2500 + i * 450);
+            }
+        }
+        // 🎆 Kembang api kecil otomatis agar halaman selalu meriah
+        setTimeout(() => {
+            for (let i = 0; i < 2; i++) {
+                setTimeout(() => {
+                    ledakanKembangApi(15 + Math.random() * 70, 12 + Math.random() * 45);
+                }, i * 600);
             }
         }, 1000);
 
